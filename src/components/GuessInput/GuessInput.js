@@ -3,12 +3,14 @@ import React from "react";
 /**
  * The form for entering a guess.
  */
-function GuessInput() {
+function GuessInput({ addGuess }) {
   const [guess, setGuess] = React.useState("");
 
   function submitGuess(event) {
     event.preventDefault();
     console.log({ guess });
+    // Submit the guess to the game.
+    addGuess(guess);
     // Clear the input after submitting.
     setGuess("");
   }
