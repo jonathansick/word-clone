@@ -3,25 +3,25 @@ import React from "react";
 /**
  * The form for entering a guess.
  */
-function GuessInput({ addGuess }) {
-  const [guess, setGuess] = React.useState("");
+function GuessInput({ handleSubmitGuess }) {
+  const [tentativeGuess, setTentativeGuess] = React.useState("");
 
   function submitGuess(event) {
     event.preventDefault();
-    console.log({ guess });
+    console.log({ tentativeGuess });
     // Submit the guess to the game.
-    addGuess(guess);
+    handleSubmitGuess(tentativeGuess);
     // Clear the input after submitting.
-    setGuess("");
+    setTentativeGuess("");
   }
 
-  function updateGuess(event) {
-    const nextGuess = event.target.value.toUpperCase();
-    if (nextGuess.length > 5) {
+  function updateTentativeGuess(event) {
+    const nextTentativeGuess = event.target.value.toUpperCase();
+    if (nextTentativeGuess.length > 5) {
       // Don't allow guesses longer than 5 characters.
-      return guess;
+      return tentativeGuess;
     }
-    setGuess(nextGuess);
+    setTentativeGuess(nextTentativeGuess);
   }
 
   return (
@@ -34,8 +34,8 @@ function GuessInput({ addGuess }) {
         minLength='5'
         maxLength='5'
         pattern='[a-zA-Z]{5}'
-        value={guess}
-        onChange={updateGuess}
+        value={tentativeGuess}
+        onChange={updateTentativeGuess}
       />
     </form>
   );
