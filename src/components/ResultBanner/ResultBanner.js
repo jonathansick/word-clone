@@ -3,7 +3,7 @@ import React from "react";
 /**
  * Display the result of the game.
  */
-function ResultBanner({ answer, guessCount, won }) {
+function ResultBanner({ answer, guessCount, won, handleResetGame }) {
   function renderMessage() {
     if (won) {
       return (
@@ -22,7 +22,11 @@ function ResultBanner({ answer, guessCount, won }) {
   }
 
   return (
-    <div className={`${won ? "happy" : "sad"} banner`}>{renderMessage()}</div>
+    <div className={`${won ? "happy" : "sad"} banner`}>
+      {renderMessage()}
+
+      <button onClick={handleResetGame}>Play again ↺</button>
+    </div>
   );
 }
 
