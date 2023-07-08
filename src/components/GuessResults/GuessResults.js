@@ -13,7 +13,9 @@ function GuessResults({ guesses }) {
       {range(NUM_OF_GUESSES_ALLOWED).map((guessIndex) => (
         <Guess
           key={guessIndex}
-          value={guesses.length > guessIndex ? guesses[guessIndex].guess : ""}
+          validatedGuess={
+            guesses.length > guessIndex ? guesses[guessIndex].validation : null
+          }
         />
       ))}
     </div>
