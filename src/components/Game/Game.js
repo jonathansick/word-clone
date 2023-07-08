@@ -9,7 +9,7 @@ import GuessResults from "../GuessResults";
 import ResultBanner from "../ResultBanner";
 
 function Game() {
-  const [answer, setAnswer] = React.useState(sample(WORDS));
+  const [answer, setAnswer] = React.useState(() => sample(WORDS));
   const [guesses, setGuesses] = React.useState([]);
 
   // To make debugging easier, we'll log the solution in the console.
